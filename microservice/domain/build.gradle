@@ -1,0 +1,23 @@
+apply plugin: 'java'
+
+group = 'com.duquejo.hexagonal.tasks'
+version = "${tasksApplicationVersion}"
+sourceCompatibility = '21'
+
+dependencies {
+    /**
+     * Annotation processing
+     */
+    compileOnly project.ext.lombok
+    annotationProcessor project.ext.lombok
+
+    /**
+     * Testing
+     */
+    testImplementation project.ext.springboottest
+    testRuntimeOnly project.ext.junitplatform
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,5 @@
+rootProject.name = 'TasksApplication'
+
+include ':infrastructure'
+include ':application'
+include ':domain'
