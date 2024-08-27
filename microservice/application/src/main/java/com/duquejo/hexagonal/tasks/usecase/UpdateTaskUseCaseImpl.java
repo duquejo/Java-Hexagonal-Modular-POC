@@ -4,12 +4,14 @@ import com.duquejo.hexagonal.tasks.model.Task;
 import com.duquejo.hexagonal.tasks.port.input.UpdateTaskUseCase;
 import com.duquejo.hexagonal.tasks.port.output.TaskRepositoryPort;
 import java.util.Optional;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 public class UpdateTaskUseCaseImpl implements UpdateTaskUseCase {
 
     private final TaskRepositoryPort taskRepository;
+
+    public UpdateTaskUseCaseImpl(TaskRepositoryPort taskRepository) {
+        this.taskRepository = taskRepository;
+    }
 
     @Override
     public Optional<Task> updateTask(Long id, Task updateTask) {

@@ -5,14 +5,16 @@ import com.duquejo.hexagonal.tasks.model.Task;
 import com.duquejo.hexagonal.tasks.port.output.TaskRepositoryPort;
 import java.util.List;
 import java.util.Optional;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
 public class JpaTaskRepositoryAdapter implements TaskRepositoryPort {
 
     private final JpaTaskRepository jpaTaskRepository;
+
+    public JpaTaskRepositoryAdapter(JpaTaskRepository jpaTaskRepository) {
+        this.jpaTaskRepository = jpaTaskRepository;
+    }
 
     @Override
     public Task save(Task task) {

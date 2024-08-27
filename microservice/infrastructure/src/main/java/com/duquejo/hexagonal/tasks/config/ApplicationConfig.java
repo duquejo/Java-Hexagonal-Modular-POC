@@ -1,6 +1,5 @@
 package com.duquejo.hexagonal.tasks.config;
 
-import com.duquejo.hexagonal.tasks.adapter.output.repository.JpaTaskRepositoryAdapter;
 import com.duquejo.hexagonal.tasks.adapter.output.rest.RestAdapter;
 import com.duquejo.hexagonal.tasks.port.input.GetAdditionalTaskInfoUseCase;
 import com.duquejo.hexagonal.tasks.port.output.ExternalRestPort;
@@ -24,17 +23,12 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public TaskRepositoryPort taskRepositoryPort(JpaTaskRepositoryAdapter jpaTaskRepositoryAdapter) {
-        return jpaTaskRepositoryAdapter;
+    public ExternalRestPort externalRestPort() {
+        return new RestAdapter();
     }
 
     @Bean
     public GetAdditionalTaskInfoUseCase getAdditionalTaskInfoUseCase(ExternalRestPort restPort) {
         return new GetAdditionalTaskInfoUseCaseImpl(restPort);
-    }
-
-    @Bean
-    public ExternalRestPort externalRestPort() {
-        return new RestAdapter();
     }
 }

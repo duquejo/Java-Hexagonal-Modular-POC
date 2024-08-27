@@ -2,8 +2,6 @@ package com.duquejo.hexagonal.tasks.adapter.output.rest;
 
 import com.duquejo.hexagonal.tasks.model.AdditionalTaskInfo;
 import com.duquejo.hexagonal.tasks.port.output.ExternalRestPort;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -37,18 +35,54 @@ public class RestAdapter implements ExternalRestPort {
         return new AdditionalTaskInfo(user.getId(), user.getName(), user.getEmail());
     }
 
-    @Getter
-    @Setter
     private static class JsonPlaceholderTodo {
         private Long id;
         private Long userId;
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public Long getUserId() {
+            return userId;
+        }
+
+        public void setUserId(Long userId) {
+            this.userId = userId;
+        }
     }
 
-    @Getter
-    @Setter
     private static class JsonPlaceholderUser {
         private Long id;
         private String name;
         private String email;
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
     }
 }

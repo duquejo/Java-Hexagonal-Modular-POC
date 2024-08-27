@@ -8,12 +8,8 @@ dependencies {
     implementation project(':domain')
 
     /**
-     * Annotation processing
+     * Spring
      */
-    compileOnly project.ext.lombok
-    annotationProcessor project.ext.lombok
-}
-
-test {
-    useJUnitPlatform()
+    implementation project.ext.springbootweb
+    runtimeOnly project.ext.springdevtools
 }

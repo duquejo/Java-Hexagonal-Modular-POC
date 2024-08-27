@@ -9,18 +9,13 @@ dependencies {
      * Spring
      */
     implementation project.ext.springbootweb
+    runtimeOnly project.ext.springdevtools
 
     /**
      * Database
      */
     implementation project.ext.springbootjpa
     runtimeOnly project.ext.db
-
-    /**
-     * Annotation processing
-     */
-    compileOnly project.ext.lombok
-    annotationProcessor project.ext.lombok
 
     /**
      * Testing

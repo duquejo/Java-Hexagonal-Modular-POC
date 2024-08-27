@@ -14,6 +14,18 @@ plugins {
     id 'com.diffplug.spotless' version '7.0.0.BETA1'
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
 allprojects {
     repositories {
         mavenCentral()
@@ -38,7 +50,6 @@ allprojects {
      */
     project.ext.springbootjpa = ["org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"]
     project.ext.db = ["com.mysql:mysql-connector-j:9.0.0"]
-    project.ext.lombok = ["org.projectlombok:lombok:1.18.34"]
 
     /**
      * Testing
@@ -73,19 +84,10 @@ repositories {
 }
 
 dependencies {
-    configurations {
-        runtime.exclude module: 'spring-boot-starter-tomcat'
-        compile.exclude module: 'spring-boot-starter-tomcat'
-    }
-
     implementation project.ext.springbootweb
     runtimeOnly project.ext.springdevtools
 
-//    implementation project(':infrastructure')
-}
-
-bootJar {
-
+    implementation project(':infrastructure')
 }
 
 //implementation 'org.springframework.boot:spring-boot-starter-data-jpa'

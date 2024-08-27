@@ -6,12 +6,6 @@ sourceCompatibility = '21'
 
 dependencies {
     /**
-     * Annotation processing
-     */
-    compileOnly project.ext.lombok
-    annotationProcessor project.ext.lombok
-
-    /**
      * Testing
      */
     testImplementation project.ext.springboottest
