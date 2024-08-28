@@ -4,11 +4,16 @@ group = 'com.duquejo.hexagonal.tasks'
 version = "${tasksApplicationVersion}"
 sourceCompatibility = '21'
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     /**
      * Spring
      */
     implementation project.ext.springbootweb
+    implementation project.ext.springactuator
     runtimeOnly project.ext.springdevtools
 
     /**
@@ -16,19 +21,4 @@ dependencies {
      */
     implementation project.ext.springbootjpa
     runtimeOnly project.ext.db
-
-    /**
-     * Testing
-     */
-    testImplementation project.ext.springboottest
-    testRuntimeOnly project.ext.junitplatform
-
-    implementation project(':domain')
-    implementation project(':application')
-
-    implementation project(':common:common-infrastructure')
-}
-
-test {
-    useJUnitPlatform()
 }
