@@ -1,0 +1,9 @@
+apply plugin: 'java'
+
+group = 'com.duquejo.hexagonal.tasks'
+version = "${tasksApplicationVersion}"
+sourceCompatibility = '21'
+
+repositories {
+    mavenCentral()
+}

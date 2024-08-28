@@ -3,3 +3,14 @@ rootProject.name = 'TasksApplication'
 include ':infrastructure'
 include ':application'
 include ':domain'
+
+include ':common',
+        ':common:common-infrastructure',
+        ':common:common-application',
+        ':common:common-domain'
+
+project(':common').projectDir = new File('../common')
+
+project(':common:common-infrastructure').projectDir = new File('../common/common-infrastructure')
+project(':common:common-application').projectDir = new File('../common/common-application')
+project(':common:common-domain').projectDir = new File('../common/common-domain')
